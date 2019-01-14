@@ -6,10 +6,14 @@ alibaba sentinel
 
 `1.4.1`, `latest`
 
+# VOLUME
+
+容器内日志目录：/opt/logs
+
 # run
 
 ```shell
-docker run --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
+docker run --name sentinel -p 8080:8080 -v ./logs:/opt/logs foxiswho/sentinel:1.4.1
 ```
 
 或
