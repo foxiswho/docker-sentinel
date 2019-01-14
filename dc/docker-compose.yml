@@ -8,6 +8,6 @@ services:
     ports:
       - "8780:8080"
     environment:
-      - JAVA_OPTS=-Dserver.port=8780 -Dcsp.sentinel.dashboard.server=localhost:8780 -Dcsp.sentinel.log.dir=/opt/logs -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom
+      - JAVA_OPTS=-Dcsp.sentinel.log.dir=/opt/logs
     volumes:
       - ./logs:/opt/logs
