@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  sentinel:
+    image: foxiswho/docker-sentinel-1.4.1
+    hostname: sentinel
+    container_name: sentinel
+    ports:
+      - "8720:8720"
+      - "8719:8719"
+    environment:
+      - JAVA_OPTS=-Xmx1g
+#    volumes:
+#      - /tmp/:/tmp/

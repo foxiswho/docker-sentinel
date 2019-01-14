@@ -2,10 +2,13 @@
 #FROM java:8
 FROM centos:7
 
-# Rocketmq version
-ENV SENTINEL_VERSION "1.4.0"
+ARG version
 
-# Rocketmq home
+# sentinel version
+ENV SENTINEL_VERSION ${version:1.4.1}
+
+
+# sentinel home
 ENV SENTINEL_HOME  /opt/
 
 #tme zone
@@ -36,8 +39,8 @@ RUN chmod -R +x ${SENTINEL_HOME}/*jar
 
 VOLUME /opt/logs
 
-RUN export JAVA_OPTS="${JAVA_OPTS} -Dserver.port=8280 -Dcsp.sentinel.dashboard.server=localhost:8280 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom"
+RUN export JAVA_OPTS="${JAVA_OPTS} -Dserver.port=8720 -Dcsp.sentinel.dashboard.server=localhost:8720 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom"
 
-EXPOSE 8280
+EXPOSE 8720 8719
 
 ENTRYPOINT exec java ${JAVA_OPTS} -jar sentinel-dashboard.jar
