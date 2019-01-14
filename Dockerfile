@@ -16,6 +16,7 @@ ENV IP ${ip:-8080}
 
 # sentinel home
 ENV SENTINEL_HOME  /opt/
+ENV SENTINEL_LOGS  /opt/logs
 
 #tme zone
 RUN rm -rf /etc/localtime \
@@ -24,13 +25,8 @@ RUN rm -rf /etc/localtime \
 RUN yum install -y java-1.8.0-openjdk-headless unzip gettext nmap-ncat openssl wget\
  && yum clean all -y
 
-RUN mkdir -p \
- /opt/logs
-
-RUN mkdir -p ${SENTINEL_HOME}
-
-
-WORKDIR  ${SENTINEL_HOME}
+# create logs
+RUN mkdir -p ${SENTINEL_LOGS}
 
 # get the version
 RUN cd /  \
@@ -38,15 +34,19 @@ RUN cd /  \
  && mv sentinel-dashboard.jar ${SENTINEL_HOME}
 
 # add scripts
-#COPY scripts/ ${SENTINEL_HOME}/bin/
+COPY scripts/* /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
+&& ln -s /usr/local/bin/docker-entrypoint.sh /opt/docker-entrypoint.sh
 
 #
 RUN chmod -R +x ${SENTINEL_HOME}/*jar
 
-VOLUME /opt/logs
+VOLUME ${SENTINEL_LOGS}
 
-ENV JAVA_OPTS="-Dserver.port=${IP} -Dcsp.sentinel.dashboard.server=${HOST}:${IP} -Dcsp.sentinel.log.dir=/opt/logs -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom ${JAVA_OPTS}"
+WORKDIR  ${SENTINEL_HOME}
 
 EXPOSE ${IP}
 
-ENTRYPOINT exec java ${JAVA_OPTS} -jar sentinel-dashboard.jar
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD java -jar sentinel-dashboard.jar
