@@ -3,15 +3,15 @@
 FROM centos:7
 
 ARG version
-ARG host
 ARG ip
+ARG port
 
 # sentinel version
 ENV SENTINEL_VERSION ${version:-1.4.1}
 #host
-ENV HOST ${host:-localhost}
+ENV IP ${ip:-localhost}
 #ip
-ENV IP ${ip:-8080}
+ENV PORT ${port:-8080}
 
 
 # sentinel home
@@ -32,6 +32,8 @@ RUN mkdir -p ${SENTINEL_LOGS}
 RUN cd /  \
  && wget https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_VERSION}/sentinel-dashboard-${SENTINEL_VERSION}.jar -O sentinel-dashboard.jar \
  && mv sentinel-dashboard.jar ${SENTINEL_HOME}
+# test file
+#COPY sentinel-dashboard.jar ${SENTINEL_HOME}
 
 # add scripts
 COPY scripts/* /usr/local/bin/
@@ -45,8 +47,8 @@ VOLUME ${SENTINEL_LOGS}
 
 WORKDIR  ${SENTINEL_HOME}
 
-EXPOSE ${IP}
+EXPOSE ${PORT}
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD java -jar sentinel-dashboard.jar
+CMD java ${JAVA_OPTS} -jar sentinel-dashboard.jar

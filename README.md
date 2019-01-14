@@ -9,9 +9,21 @@ alibaba sentinel
 # run
 
 ```shell
-docker run -e JAVA_OPTS='-Xmx1g' --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
+docker run --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
 ```
 
+或
+
+```shell
+docker run -e JAVA_OPTS='-Xmx1g' --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
+```
+或
+
+```shell
+docker run --rm --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
+```
+
+或
 
 ```shell
 docker run --rm -e JAVA_OPTS='-Xmx1g' --name sentinel -p 8080:8080 foxiswho/sentinel:1.4.1
