@@ -5,7 +5,7 @@ FROM centos:7
 ARG version
 
 # sentinel version
-ENV SENTINEL_VERSION ${version:=1.4.1}
+ENV SENTINEL_VERSION ${version:-1.4.1}
 
 
 # sentinel home
