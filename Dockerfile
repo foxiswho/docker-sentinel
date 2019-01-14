@@ -45,7 +45,7 @@ RUN chmod -R +x ${SENTINEL_HOME}/*jar
 
 VOLUME /opt/logs
 
-ENV JAVA_OPTS="-Dserver.port=${IP} -Dcsp.sentinel.dashboard.server=${HOST}:${IP} -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom ${JAVA_OPTS}"
+ENV JAVA_OPTS="-Dserver.port=${IP} -Dcsp.sentinel.dashboard.server=${HOST}:${IP} -Dcsp.sentinel.log.dir=/opt/logs -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom ${JAVA_OPTS}"
 
 EXPOSE ${IP}
 
