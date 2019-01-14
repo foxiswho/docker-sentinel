@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   sentinel:
-    image: foxiswho/docker-sentinel-1.4.1
+    image: foxiswho/sentinel
     hostname: sentinel
     container_name: sentinel
     ports:
