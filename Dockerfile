@@ -2,6 +2,8 @@
 #FROM java:8
 FROM centos:7
 
+MAINTAINER foxiswho@gmail.com
+
 ARG version
 ARG ip
 ARG port
