@@ -9,7 +9,7 @@ ARG ip
 ARG port
 
 # sentinel version
-ENV SENTINEL_VERSION ${version:-1.4.1}
+ENV SENTINEL_VERSION ${version:-1.5.0}
 #host
 ENV IP ${ip:-localhost}
 #ip
