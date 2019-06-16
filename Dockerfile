@@ -1,6 +1,5 @@
 
-#FROM java:8
-FROM centos:7
+FROM openjdk:11.0.3-jdk-stretch
 
 MAINTAINER foxiswho@gmail.com
 
@@ -9,11 +8,15 @@ ARG ip
 ARG port
 
 # sentinel version
-ENV SENTINEL_VERSION ${version:-1.5.0}
+ENV SENTINEL_VERSION ${version:-1.6.1}
 #host
 ENV IP ${ip:-localhost}
 #ip
-ENV PORT ${port:-8080}
+ENV PORT ${port:-8280}
+#
+ENV PROJECT_NAME sentinel-dashboard
+ENV SERVER_IP localhost
+ENV SERVER_PORT 8280
 
 
 # sentinel home
@@ -24,7 +27,7 @@ ENV SENTINEL_LOGS  /opt/logs
 RUN rm -rf /etc/localtime \
 && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN yum install -y java-1.8.0-openjdk-headless unzip gettext nmap-ncat openssl wget\
+RUN yum install -y unzip gettext nmap-ncat openssl wget vim\
  && yum clean all -y
 
 # create logs

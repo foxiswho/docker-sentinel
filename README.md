@@ -4,7 +4,10 @@ alibaba sentinel
 
 # TAGS
 
-`1.5.0`,`1.4.1`, `latest`
+`1.6.1`, `latest`
+
+# 端口
+更改所有端口 8280
 
 # VOLUME
 
@@ -13,24 +16,24 @@ alibaba sentinel
 # run
 
 ```shell
-docker run --name sentinel -p 8080:8080 -v ./logs:/opt/logs foxiswho/sentinel:1.5.0
+docker run --name sentinel -p 8280:8280 -v ./logs:/opt/logs foxiswho/sentinel:1.6.1
 ```
 
 或
 
 ```shell
-docker run -e JAVA_OPTS='-Xmx1g' --name sentinel -p 8080:8080 foxiswho/sentinel:1.5.0
+docker run -e JAVA_OPT_EXT='-Xmx1g' --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
 ```
 或
 
 ```shell
-docker run --rm --name sentinel -p 8080:8080 foxiswho/sentinel:1.5.0
+docker run --rm --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
 ```
 
 或
 
 ```shell
-docker run --rm -e JAVA_OPTS='-Xmx1g' --name sentinel -p 8080:8080 foxiswho/sentinel:1.5.0
+docker run --rm -e JAVA_OPT_EXT='-Xmx1g' --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
 ```
 
 # 官网
@@ -51,15 +54,15 @@ https://github.com/alibaba/Sentinel
 编译镜像
 
 ```shell
-docker build -t foxiswho/sentinel:1.5.0 --build-arg version=1.5.0 ./
+docker build -t foxiswho/sentinel:1.6.1 --build-arg version=1.6.1 ./
 ```
 
 启动容器
 ````SHELLL
-docker run --rm --name sentinel -p 8080:8080 foxiswho/sentinel:1.5.0
+docker run --rm --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
 
 或
-docker run --rm -e JAVA_OPTS="-Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom" --name sentinel -p 8080:8080 foxiswho/sentinel:1.5.0
+docker run --rm -e JAVA_OPT_EXT="-Dserver.port=8280 -Dcsp.sentinel.dashboard.server=localhost:8280 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom" --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
 ````
 
 
