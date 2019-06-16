@@ -24,9 +24,6 @@ ENV SENTINEL_LOGS  /opt/logs
 RUN rm -rf /etc/localtime \
 && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN yum install -y unzip gettext nmap-ncat openssl wget vim\
- && yum clean all -y
-
 # create logs
 RUN mkdir -p ${SENTINEL_LOGS}
 
