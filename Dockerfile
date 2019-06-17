@@ -50,4 +50,4 @@ EXPOSE ${PORT}
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD java ${JAVA_OPTS} -jar sentinel-dashboard.jar
+CMD java ${JAVA_OPT} -jar sentinel-dashboard.jar
