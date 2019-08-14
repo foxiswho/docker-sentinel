@@ -7,7 +7,7 @@ ARG version
 ARG port
 
 # sentinel version
-ENV SENTINEL_VERSION ${version:-1.6.1}
+ENV SENTINEL_VERSION ${version:-1.6.3}
 #PORT
 ENV PORT ${port:-8280}
 #
