@@ -14,6 +14,8 @@ ENV PORT ${port:-8280}
 ENV PROJECT_NAME sentinel-dashboard
 ENV SERVER_HOST localhost
 ENV SERVER_PORT 8280
+ENV USERNAME sentinel
+ENV PASSWORD sentinel
 
 
 # sentinel home
