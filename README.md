@@ -11,6 +11,8 @@ alibaba sentinel
 # 端口
 更改所有端口 8280
 
+api server : 8719
+
 # 默认用户名和密码
 sentinel/sentinel
 
