@@ -11,6 +11,9 @@ alibaba sentinel
 # 端口
 更改所有端口 8280
 
+# 默认用户名和密码
+sentinel/sentinel
+
 # VOLUME
 
 容器内日志目录：/opt/logs
