@@ -4,7 +4,9 @@ alibaba sentinel
 
 # TAGS
 
-`1.6.1`, `latest`
+`1.6.3`,`latest`
+
+`1.6.1`, 
 
 # 端口
 更改所有端口 8280
