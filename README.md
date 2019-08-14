@@ -9,7 +9,7 @@ alibaba sentinel
 `1.6.1`, 
 
 # 端口
-更改所有端口 8280
+web端口 8280
 
 api server : 8719
 
