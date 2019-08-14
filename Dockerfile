@@ -10,6 +10,7 @@ ARG port
 ENV SENTINEL_VERSION ${version:-1.6.3}
 #PORT
 ENV PORT ${port:-8280}
+ENV JAVA_OPT=""
 #
 ENV PROJECT_NAME sentinel-dashboard
 ENV SERVER_HOST localhost
@@ -32,7 +33,8 @@ RUN mkdir -p ${SENTINEL_LOGS}
 # get the version
 RUN cd /  \
  && wget https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_VERSION}/sentinel-dashboard-${SENTINEL_VERSION}.jar -O sentinel-dashboard.jar \
- && mv sentinel-dashboard.jar ${SENTINEL_HOME}
+ && mv sentinel-dashboard.jar ${SENTINEL_HOME} \
+ && chmod -R +x ${SENTINEL_HOME}/*jar
 # test file
 #COPY sentinel-dashboard.jar ${SENTINEL_HOME}
 
@@ -42,7 +44,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
 && ln -s /usr/local/bin/docker-entrypoint.sh /opt/docker-entrypoint.sh
 
 #
-RUN chmod -R +x ${SENTINEL_HOME}/*jar
+#RUN chmod -R +x ${SENTINEL_HOME}/*jar
 
 VOLUME ${SENTINEL_LOGS}
 
@@ -50,6 +52,7 @@ WORKDIR  ${SENTINEL_HOME}
 
 EXPOSE ${PORT} 8719
 
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD java ${JAVA_OPT} -jar sentinel-dashboard.jar
+
+ENTRYPOINT ["docker-entrypoint.sh"]
