@@ -79,9 +79,9 @@ JAVA_OPT="${JAVA_OPT} -Dcsp.sentinel.dashboard.server=${SERVER_HOST:-localhost}:
 JAVA_OPT="${JAVA_OPT} ${JAVA_OPT_EXT}"
 JAVA_OPT="${JAVA_OPT} -jar sentinel-dashboard.jar "
 JAVA_OPT="${JAVA_OPT} -cp ${CLASSPATH}"
-echo "JAVA_OPTS============"
-echo "JAVA_OPTS============"
-echo "JAVA_OPTS============"
+echo "JAVA_OPT============"
+echo "JAVA_OPT============"
+echo "JAVA_OPT============"
 echo $JAVA_OPT
 
 $JAVA ${JAVA_OPT} $@
