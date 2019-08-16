@@ -23,24 +23,24 @@ sentinel/sentinel
 # run
 
 ```shell
-docker run --name sentinel -p 8280:8280 -v ./logs:/opt/logs foxiswho/sentinel:1.6.1
+docker run --name sentinel -p 8280:8280 -v ./logs:/opt/logs foxiswho/sentinel
 ```
 
 或
 
 ```shell
-docker run -e JAVA_OPT_EXT='-Xmx1g' --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
+docker run -e JAVA_OPT_EXT='-Xmx1g' -e USERNAME="sentinel" -e PASSWORD="sentinel" -e SERVER_HOST="localhost" --name sentinel -p 8280:8280 foxiswho/sentinel
 ```
 或
 
 ```shell
-docker run --rm --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
+docker run --rm --name sentinel -p 8280:8280 foxiswho/sentinel
 ```
 
 或
 
 ```shell
-docker run --rm -e JAVA_OPT_EXT='-Xmx1g' --name sentinel -p 8280:8280 foxiswho/sentinel:1.6.1
+docker run --rm -e JAVA_OPT_EXT='-Xmx1g' --name sentinel -p 8280:8280 foxiswho/sentinel
 ```
 
 # 官网
