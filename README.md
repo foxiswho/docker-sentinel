@@ -74,3 +74,6 @@ docker run --rm -e JAVA_OPT_EXT="-Dserver.port=8280 -Dcsp.sentinel.dashboard.ser
 
 
 
+# 其他k8s 使用案例
+
+https://github.com/foxiswho/k8s-nacos-sentinel-rocketmq-zipkin-elasticsearch-redis-mysql
