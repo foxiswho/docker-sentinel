@@ -4,9 +4,9 @@ alibaba sentinel
 
 # TAGS
 
-`1.6.3`,`latest`
+`1.7.1`,`latest`
 
-`1.6.1`, 
+`1.6.1`, `1.6.3`, 
 
 # 端口
 web端口 8280
