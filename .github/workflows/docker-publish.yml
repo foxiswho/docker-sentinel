@@ -12,7 +12,7 @@ on:
     tags: [ 'v*.*.*' ]
 
 env:
-  IMAGE_NAME: riskers/sentinel
+  IMAGE_NAME: sentinel
 
 jobs:
   build:
@@ -38,6 +38,6 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker build -t ${{env.IMAGE_NAME}}:1.6.1 --build-arg version=1.6.1 ./
-          docker tag ${{env.IMAGE_NAME}}:1.6.1
+          docker tag ${{env.IMAGE_NAME}}:1.6.1 riskers/${{env.IMAGE_NAME}}:1.6.1
           docker push
 
