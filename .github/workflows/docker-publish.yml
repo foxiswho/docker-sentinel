@@ -36,7 +36,6 @@ jobs:
           echo LASTEST_TAG=$(echo ${{ steps.version_step.outputs.latest_tag  }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         run: |
           docker build -t ${{env.IMAGE_NAME}}:1.6.1 --build-arg version=1.6.1 ./
           docker tag ${{env.IMAGE_NAME}}:1.6.1
