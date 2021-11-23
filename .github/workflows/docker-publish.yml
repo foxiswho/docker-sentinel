@@ -12,7 +12,7 @@ on:
     tags: [ 'v*.*.*' ]
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: 
   IMAGE_NAME: sentinel
 
 jobs:
