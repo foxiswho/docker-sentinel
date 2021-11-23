@@ -39,5 +39,5 @@ jobs:
         run: |
           docker build -t ${{env.IMAGE_NAME}}:1.6.1 --build-arg version=1.6.1 ./
           docker tag ${{env.IMAGE_NAME}}:1.6.1 riskers/${{env.IMAGE_NAME}}:1.6.1
-          docker push
+          docker push riskers/${{env.IMAGE_NAME}}:1.6.1
 
